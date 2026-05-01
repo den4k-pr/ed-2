@@ -91,7 +91,7 @@ button {
 }
 
 .hero {
-    height: 926px;
+    height: 800px;
     /* Стандартна висота для екрану 428px (напр. iPhone 13/14 Pro Max) */
     position: relative;
     overflow: hidden;
@@ -1525,7 +1525,7 @@ padding-bottom: 10px;
 
 @media (max-width: 430px) {
     .hero {
-        height: 215.3488vw;
+        height: 182.3488vw;
         /* Стандартна висота для екрану 428px (напр. iPhone 13/14 Pro Max) */
         position: relative;
         overflow: hidden;
