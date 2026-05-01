@@ -99,7 +99,6 @@ button {
     display: flex;
     flex-direction: column;
     max-width: 428px;
-    width: 100%;
     margin: 0 auto;
 }
 
@@ -350,7 +349,7 @@ button {
 
 /* Головний заголовок */
 .main-title {
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 900;
     line-height: 1.1;
     font-family: "Inter-Bold";
@@ -516,7 +515,7 @@ button {
 
 .protocol-name {
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 10px;
     font-weight: bold;
     text-transform: uppercase;
@@ -524,7 +523,7 @@ button {
 
 .protocol-desc {
     color: #aaa;
-    font-size: 16px;
+    font-size: 15px;
     margin: 0;
     line-height: 1.4;
 }
@@ -663,6 +662,7 @@ button {
 .tracking-heading {
     font-size: 36px;
     font-weight: 900;
+    font-family: "Inter-Bold";
     color: #000000;
     line-height: 1.05;
     margin: 0 0 15px 0;
@@ -1014,7 +1014,8 @@ button {
 .stat-number {
     display: block;
     font-size: 44px;
-    font-weight: 800;
+    font-weight: 700;
+    font-family: "Inter-Bold";
     color: #eb4a14;
     line-height: 1;
     margin-bottom: 8px;
@@ -1363,13 +1364,19 @@ button {
 
 }
 
+.contact-bg{
+    background-color: #000;
+    padding: 50px 0;
+    margin-bottom: 250px;
+}
 
 .contact {
     background-image: url(../images/contacts.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     padding: 50px 0;
-    margin-bottom: 250px;
+    max-width: 428px;
+    margin: 0 auto;
 }
 
 .contact span,
@@ -1424,7 +1431,8 @@ text-shadow: 0 22px 17px rgba(0, 0, 0, 0.6);
 
 .footer {
     background-color: #fff;
-    border-top: 2px solid #549601;
+    border-top: 2px solid #FF4400;
+    border-bottom: 2px solid #FF4400;
     border-radius: 30px 30px 0 0;
     padding: 25px 0;
     position: fixed;
@@ -1464,7 +1472,7 @@ text-shadow: 0 22px 17px rgba(0, 0, 0, 0.6);
     border-radius: 150px;
     width: 67px;
     height: 38px;
-    background: linear-gradient(90deg, #539400 0.96%, #6ebf04 46.15%, #539400 100%);
+    background: #FF4400;
     color: #fff;
     font-family: "League Gothic", sans-serif;
     font-weight: 400;
@@ -1496,7 +1504,7 @@ text-shadow: 0 22px 17px rgba(0, 0, 0, 0.6);
     margin: 15px auto 0 auto;
     width: 293px;
     height: 56px;
-    background: linear-gradient(90deg, #539400 0.96%, #6ebf04 46.15%, #539400 100%);
+    background: #FF4400;
     transition: .2s;
 }
 
@@ -1525,7 +1533,7 @@ padding-bottom: 10px;
         display: flex;
         flex-direction: column;
         max-width: 99.5348vw;
-        width: 100%;
+        min-width: 100%;
         margin: 0 auto;
     }
 
@@ -1655,7 +1663,7 @@ padding-bottom: 10px;
 
     /* Головний заголовок */
     .main-title {
-        font-size: 8.8372vw;
+        font-size: 8.372vw;
         font-weight: 900;
         line-height: 1.1;
         color: #000000;
@@ -1811,14 +1819,14 @@ padding-bottom: 10px;
 
     .protocol-name {
         color: white;
-        font-size: 4.6511vw;
+        font-size: 4.511vw;
         font-weight: bold;
         text-transform: uppercase;
     }
 
     .protocol-desc {
         color: #aaa;
-        font-size: 4.0558vw;
+        font-size: 3.558vw;
         margin: 0;
         line-height: 1.4;
     }
@@ -2175,7 +2183,7 @@ padding-bottom: 10px;
     .step-light-green .step-line { background-color: #badd4b; }
     .step-light-green .step-node { border: 0.6976vw solid #e2f0b6; }
     .step-light-green .step-node::after { background-color: #badd4b; }
-    .step-light-green .days-badge { background-color: #badd4b; }
+    .step-light-green .days-badge { background: linear-gradient(166deg, #ffdc4f 0%, #82e108 100%); }
     .step-light-green .dash.active { background-color: #badd4b; }
 
     /* 4. Зелений */
@@ -2505,8 +2513,6 @@ padding-bottom: 10px;
     }
 
     .footer {
-        background-color: #fff;
-        border-top: 0.4651vw solid #549601;
         border-radius: 6.9767vw 6.9767vw 0 0;
         padding: 5.8139vw 0;
         position: fixed;
@@ -2546,9 +2552,6 @@ padding-bottom: 10px;
         border-radius: 34.8837vw;
         width: 15.5813vw;
         height: 8.8372vw;
-        background: linear-gradient(90deg, #539400 0.96%, #6ebf04 46.15%, #539400 100%);
-        color: #fff;
-        font-family: "League Gothic", sans-serif;
         font-weight: 400;
         font-size: 6.9767vw;
         line-height: 117%;
@@ -2578,12 +2581,6 @@ padding-bottom: 10px;
         margin: 3.4883vw auto 0 auto;
         width: 68.1395vw;
         height: 13.0232vw;
-        background: linear-gradient(90deg, #539400 0.96%, #6ebf04 46.15%, #539400 100%);
-        transition: .2s;
-    }
-
-    .footerButton:active {
-        background: #4a7500;
     }
 
     .footer-title{
