@@ -587,13 +587,7 @@
 
                 <div class="final-banner">
                     <div class="banner-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
-                                stroke="white" stroke-width="2" />
-                            <path d="M7 12.5L10.5 16L17 8" stroke="white" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                        <img src="./images/check.webp" alt="">
                     </div>
                     <h2 class="banner-title">SYSTEM WORKS FOR YOU</h2>
                     <p class="banner-desc">Energy baseline shifted.<br>Protocols become how you operate</p>
@@ -719,27 +713,7 @@
 
             </div>
             
-            <footer class="footer" id="footer">
-                <p class="footer-title">
-                    Offer ends in:
-                </p>
-                <div class="footer-timer">
-                    <div class="footer-timer-item">
-                        <h3 class="footer-timer-value">23</h3>
-                        <p class="footer-timer-time">hours</p>
-                    </div>
-                    <div class="footer-timer-item">
-                        <h3 class="footer-timer-value">59</h3>
-                        <p class="footer-timer-time">minutes</p>
-                    </div>
-                    <div class="footer-timer-item">
-                        <h3 class="footer-timer-value">59</h3>
-                        <p class="footer-timer-time">seconds</p>
-                    </div>
-                </div>
-                <!-- <a class="footerButton payment-btn open-popup-btn">Sign up today</a> -->
-                <a class="footerButton payment-btn open-popup-btn">👉 Show Me the System</a>
-            </footer>
+           
         </div>
     </div>
     <div class="contact-bg">
@@ -765,9 +739,32 @@
                     <a href="/policy" class="contactlink">Privacy Policy and User Agreement</a>
                 </div>
             </div>
+             <div class="footer-bg" id="footer-bg">
+                <footer class="footer">
+                    <p class="footer-title">
+                        Offer ends in:
+                    </p>
+                    <div class="footer-timer">
+                        <div class="footer-timer-item">
+                            <h3 class="footer-timer-value">23</h3>
+                            <p class="footer-timer-time">hours</p>
+                        </div>
+                        <div class="footer-timer-item">
+                            <h3 class="footer-timer-value">59</h3>
+                            <p class="footer-timer-time">minutes</p>
+                        </div>
+                        <div class="footer-timer-item">
+                            <h3 class="footer-timer-value">59</h3>
+                            <p class="footer-timer-time">seconds</p>
+                        </div>
+                    </div>
+                    <!-- <a class="footerButton payment-btn open-popup-btn">Sign up today</a> -->
+                    <a class="footerButton payment-btn open-popup-btn">👉 Show Me the System</a>
+                </footer>
+            </div>
         <script defer>
             document.addEventListener('DOMContentLoaded', () => {
-                const footer = document.getElementById('footer'); // елемент, до якого додамо клас
+                const footer = document.getElementById('footer-bg'); // елемент, до якого додамо клас
                 if (!footer) return;
 
                 window.addEventListener('scroll', () => {
