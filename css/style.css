@@ -2523,36 +2523,17 @@ padding-bottom: 10px;
     .footer {
         border-radius: 6.9767vw 6.9767vw 0 0;
         padding: 5.8139vw 0;
-        position: fixed;
-        z-index: 99;
-        bottom: 0;
-        opacity: 0;
-        transform: translateY(34.8837vw);
         margin: 0 auto;
         width: 100%;
         max-width: 100vw;
-
-        transition: all .5s ease;
-    }
-
-    .footer.active {
-        transform: translateY(0vw);
-        opacity: 1;
     }
 
     .footer-timer {
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         gap: 1.3953vw;
     }
 
     .footer-timer-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+
         gap: 1.1627vw;
     }
 
