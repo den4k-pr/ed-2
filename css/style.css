@@ -2604,7 +2604,7 @@ padding-bottom: 10px;
 
 .contacts__grid {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 12px;
     margin-bottom: 48px;
 }
