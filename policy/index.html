@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — ZBL Company BV</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #141414;
+    --surface-2: #1c1c1c;
+    --border: #2a2a2a;
+    --accent: #c8a96e;
+    --accent-light: #e0c99a;
+    --text: #e8e4de;
+    --text-muted: #7a746c;
+    --text-dim: #4a4540;
+    --white: #f5f2ee;
+    --red: #c0392b;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,13,13,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 clamp(1rem, 5vw, 4rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .topbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--accent);
+    letter-spacing: .03em;
+    text-decoration: none;
+  }
+  .topbar-meta {
+    font-size: .75rem;
+    color: var(--text-muted);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 5vw, 4rem) clamp(3rem, 6vw, 5rem);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(200,169,110,.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .7rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .hero-kicker::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--accent);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 7vw, 5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+  .hero-subtitle {
+    font-size: clamp(.9rem, 2vw, 1.05rem);
+    color: var(--text-muted);
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .hero-dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .hero-date {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+  }
+  .hero-date span:first-child {
+    font-size: .65rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--text-dim);
+  }
+  .hero-date span:last-child {
+    font-size: .85rem;
+    color: var(--accent-light);
+    font-weight: 500;
+  }
+
+  /* ── NOTICE BANNER ── */
+  .notice {
+    margin: 0;
+    padding: 1.25rem clamp(1rem, 5vw, 4rem);
+    background: rgba(200,169,110,.06);
+    border-bottom: 1px solid rgba(200,169,110,.18);
+    border-left: none;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .notice-icon {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    margin-top: 1px;
+    color: var(--accent);
+  }
+  .notice p {
+    font-size: .88rem;
+    color: #b5a98a;
+    line-height: 1.6;
+  }
+  .notice strong { color: var(--accent-light); }
+
+  /* ── LAYOUT ── */
+  .layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+
+  /* ── SIDEBAR NAV ── */
+  .sidebar {
+    position: sticky;
+    top: 56px;
+    align-self: start;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    padding: 2.5rem 1.5rem 2rem 0;
+    border-right: 1px solid var(--border);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  .sidebar-label {
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+  }
+  .nav-list { list-style: none; }
+  .nav-list li a {
+    display: flex;
+    align-items: baseline;
+    gap: .6rem;
+    padding: .45rem 1rem;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: .8rem;
+    border-radius: 4px;
+    transition: all .2s;
+    line-height: 1.4;
+  }
+  .nav-list li a:hover {
+    color: var(--accent-light);
+    background: rgba(200,169,110,.06);
+  }
+  .nav-list li a .num {
+    font-family: 'Playfair Display', serif;
+    font-size: .7rem;
+    color: var(--text-dim);
+    flex-shrink: 0;
+    transition: color .2s;
+  }
+  .nav-list li a:hover .num { color: var(--accent); }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    padding: 3rem clamp(1rem, 4vw, 3.5rem) 5rem;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-of-type { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--text-dim);
+    flex-shrink: 0;
+    min-width: 3rem;
+    transition: color .2s;
+  }
+  .section:hover .section-num { color: var(--accent); }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 3vw, 1.7rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    padding-top: .5rem;
+  }
+
+  .clause {
+    margin-bottom: 1.25rem;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--border);
+    transition: border-color .2s;
+  }
+  .clause:hover { border-left-color: var(--accent); }
+  .clause-num {
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: .3rem;
+  }
+  .clause p { color: var(--text); font-size: .93rem; }
+
+  /* Inline bold tags */
+  .clause p b, .clause p strong { color: var(--accent-light); font-weight: 600; }
+
+  /* ── COMPANY CARD ── */
+  .company-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+  .company-item {
+    background: var(--surface);
+    padding: 1rem 1.25rem;
+    transition: background .2s;
+  }
+  .company-item:hover { background: var(--surface-2); }
+  .company-item .label {
+    font-size: .65rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: .25rem;
+  }
+  .company-item .val {
+    font-size: .88rem;
+    color: var(--text);
+    font-weight: 500;
+    word-break: break-all;
+  }
+  .company-item .val a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .company-item .val a:hover { text-decoration: underline; }
+
+  /* ── RIGHTS TABLE ── */
+  .rights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+  .rights-cell {
+    background: var(--surface);
+    padding: 1.5rem;
+  }
+  .rights-cell:nth-child(2) { background: var(--surface-2); }
+  .rights-cell:nth-child(3) { background: var(--surface-2); }
+  .rights-cell:nth-child(4) { background: var(--surface); }
+  .rights-cell h4 {
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+  .rights-cell ul { list-style: none; }
+  .rights-cell ul li {
+    font-size: .85rem;
+    color: var(--text);
+    padding: .35rem 0;
+    border-bottom: 1px solid var(--border);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .rights-cell ul li:last-child { border-bottom: none; }
+  .rights-cell ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--text-dim);
+    font-size: .7rem;
+  }
+
+  /* ── BULLET LIST ── */
+  .bullet-list {
+    list-style: none;
+    margin-top: .5rem;
+  }
+  .bullet-list li {
+    position: relative;
+    padding: .4rem 0 .4rem 1.5rem;
+    font-size: .93rem;
+    color: var(--text);
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    line-height: 1.6;
+  }
+  .bullet-list li:last-child { border-bottom: none; }
+  .bullet-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: .85em;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: .7;
+  }
+  .bullet-list li b, .bullet-list li strong { color: var(--accent-light); font-weight: 600; }
+
+  /* ── NOTE CALLOUT ── */
+  .callout {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+  }
+  .callout p {
+    font-size: .83rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.65;
+  }
+
+  /* ── TOC SECTION ── */
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: .5rem;
+  }
+  .toc-item {
+    background: var(--surface);
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    display: flex;
+    gap: .75rem;
+    align-items: baseline;
+    transition: background .2s, color .2s;
+    color: var(--text-muted);
+    font-size: .85rem;
+  }
+  .toc-item:hover { background: var(--surface-2); color: var(--accent-light); }
+  .toc-item .toc-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--text-dim);
+    line-height: 1;
+    flex-shrink: 0;
+    transition: color .2s;
+  }
+  .toc-item:hover .toc-num { color: var(--accent); }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem clamp(1rem, 5vw, 4rem);
+    text-align: center;
+  }
+  .footer-question {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: .5rem;
+  }
+  .footer-desc {
+    font-size: .85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+  .footer-email {
+    display: inline-block;
+    padding: .75rem 2rem;
+    background: var(--accent);
+    color: #0d0d0d;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .9rem;
+    letter-spacing: .04em;
+    border-radius: 4px;
+    transition: background .2s;
+  }
+  .footer-email:hover { background: var(--accent-light); }
+  .footer-copy {
+    margin-top: 2.5rem;
+    font-size: .72rem;
+    color: var(--text-dim);
+    letter-spacing: .05em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+    .sidebar {
+      display: none;
+    }
+    .rights-grid {
+      grid-template-columns: 1fr;
+    }
+    .rights-cell:nth-child(2) { background: var(--surface); }
+    .rights-cell:nth-child(3) { background: var(--surface-2); }
+  }
+
+  @media (max-width: 560px) {
+    .hero h1 { font-size: 2rem; }
+    .section-num { font-size: 2rem; }
+    .section-title { font-size: 1.1rem; }
+    .topbar-meta { display: none; }
+    .toc-grid { grid-template-columns: 1fr 1fr; }
+    .company-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 360px) {
+    .toc-grid { grid-template-columns: 1fr; }
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <a class="topbar-brand" href="#">ZBL Company BV</a>
+  <span class="topbar-meta">Legal · Terms of Service</span>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-kicker">Legal Document</div>
+  <h1>Terms of Service</h1>
+  <p class="hero-subtitle">Governing the purchase and use of online courses and digital products worldwide. ZBL Company BV</p>
+  <div class="hero-dates">
+    <div class="hero-date">
+      <span>Effective date</span>
+      <span>April 1, 2025</span>
+    </div>
+    <div class="hero-date">
+      <span>Last updated</span>
+      <span>April 4, 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- NOTICE -->
+<div class="notice">
+  <svg class="notice-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M10 6v4M10 14h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+  <p><strong>Please read these Terms carefully.</strong> By placing an order, registering an account, or accessing any content on our platform, you confirm that you have read, understood, and agree to be bound by these Terms of Service.</p>
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" aria-label="Table of contents">
+    <p class="sidebar-label">Contents</p>
+    <ul class="nav-list">
+      <li><a href="#s01"><span class="num">01</span> General Provisions</a></li>
+      <li><a href="#s02"><span class="num">02</span> The Company</a></li>
+      <li><a href="#s03"><span class="num">03</span> Subject Matter</a></li>
+      <li><a href="#s04"><span class="num">04</span> Acceptance &amp; Formation</a></li>
+      <li><a href="#s05"><span class="num">05</span> Rights &amp; Obligations</a></li>
+      <li><a href="#s06"><span class="num">06</span> Pricing &amp; Payment</a></li>
+      <li><a href="#s07"><span class="num">07</span> Intellectual Property</a></li>
+      <li><a href="#s08"><span class="num">08</span> Liability &amp; Disclaimers</a></li>
+      <li><a href="#s09"><span class="num">09</span> Refund Policy</a></li>
+      <li><a href="#s10"><span class="num">10</span> Prohibited Conduct</a></li>
+      <li><a href="#s11"><span class="num">11</span> Term &amp; Termination</a></li>
+      <li><a href="#s12"><span class="num">12</span> Governing Law &amp; Disputes</a></li>
+      <li><a href="#s13"><span class="num">13</span> Miscellaneous</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- CONTENTS -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-title" style="padding-top:0">Contents</div>
+      </div>
+      <div class="toc-grid">
+        <a class="toc-item" href="#s01"><span class="toc-num">01</span> General Provisions</a>
+        <a class="toc-item" href="#s02"><span class="toc-num">02</span> The Company</a>
+        <a class="toc-item" href="#s03"><span class="toc-num">03</span> Subject Matter</a>
+        <a class="toc-item" href="#s04"><span class="toc-num">04</span> Acceptance &amp; Formation</a>
+        <a class="toc-item" href="#s05"><span class="toc-num">05</span> Rights &amp; Obligations</a>
+        <a class="toc-item" href="#s06"><span class="toc-num">06</span> Pricing &amp; Payment</a>
+        <a class="toc-item" href="#s07"><span class="toc-num">07</span> Intellectual Property</a>
+        <a class="toc-item" href="#s08"><span class="toc-num">08</span> Liability &amp; Disclaimers</a>
+        <a class="toc-item" href="#s09"><span class="toc-num">09</span> Refund Policy</a>
+        <a class="toc-item" href="#s10"><span class="toc-num">10</span> Prohibited Conduct</a>
+        <a class="toc-item" href="#s11"><span class="toc-num">11</span> Term &amp; Termination</a>
+        <a class="toc-item" href="#s12"><span class="toc-num">12</span> Governing Law &amp; Disputes</a>
+        <a class="toc-item" href="#s13"><span class="toc-num">13</span> Miscellaneous</a>
+      </div>
+    </section>
+
+    <!-- 01 -->
+    <section class="section" id="s01">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <h2 class="section-title">General Provisions</h2>
+      </div>
+      <div class="clause">
+        <div class="clause-num">1.1</div>
+        <p>These Terms of Service (the "Terms") constitute a legally binding public offer and agreement between you ("Customer", "you") and ZBL Company BV (the "Company", "we", "our") governing access to and use of the Company's online courses, digital products, and related services (the "Services").</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">1.2</div>
+        <p>These Terms apply to all visitors, registered users, and purchasers of any product or service offered through our websites and platforms, including those operating under the brands <strong>Zubalenok</strong> and <strong>EDGRIND</strong>.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">1.3</div>
+        <p>The Company reserves the right to modify these Terms at any time. Updated Terms take effect immediately upon publication. Your continued use of the Services constitutes acceptance of the updated Terms.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">1.4</div>
+        <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect (severability).</p>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="section" id="s02">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <h2 class="section-title">The Company</h2>
+      </div>
+      <div class="company-grid">
+        <div class="company-item">
+          <div class="label">Legal name</div>
+          <div class="val">ZBL Company BV</div>
+        </div>
+        <div class="company-item">
+          <div class="label">Country of incorporation</div>
+          <div class="val">Belgium</div>
+        </div>
+        <div class="company-item">
+          <div class="label">Registered address</div>
+          <div class="val">Delaerestraat 6a, Roeselare, Belgium</div>
+        </div>
+        <div class="company-item">
+          <div class="label">Company registration number</div>
+          <div class="val">BE1022336448</div>
+        </div>
+        <div class="company-item">
+          <div class="label">VAT number</div>
+          <div class="val">BE1022336448</div>
+        </div>
+        <div class="company-item">
+          <div class="label">Phone</div>
+          <div class="val"><a href="tel:+32470129511">+32 470 12 95 11</a></div>
+        </div>
+        <div class="company-item">
+          <div class="label">Contact email</div>
+          <div class="val"><a href="mailto:support@zbl.agency">support@zbl.agency</a></div>
+        </div>
+        <div class="company-item">
+          <div class="label">DUNS number</div>
+          <div class="val">373268686</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="section" id="s03">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <h2 class="section-title">Subject Matter</h2>
+      </div>
+      <div class="clause">
+        <div class="clause-num">3.1</div>
+        <p>The Company provides online educational content, fitness and wellness courses, digital programs, and related digital products ("Products") made available for purchase through our websites.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">3.2</div>
+        <p>The specific description, contents, duration, access format, and conditions applicable to each Product are set out on the relevant product pages at the time of purchase. The Company may update and improve Product content without prior notice, provided that the core educational value is maintained.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">3.3</div>
+        <p>Our Products are intended for personal, non-commercial use only, unless a separate written commercial license is agreed upon with the Company.</p>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="section" id="s04">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <h2 class="section-title">Acceptance &amp; Formation of Agreement</h2>
+      </div>
+      <div class="clause">
+        <div class="clause-num">4.1</div>
+        <p>An agreement between you and the Company is formed at the moment you complete payment for a Product. By completing payment, you confirm that you are at least 16 years of age, that you have the legal capacity to enter into this agreement, and that you accept these Terms in full.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">4.2</div>
+        <p>Upon successful payment confirmation, you will receive an email with order confirmation and instructions for accessing the purchased Product.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">4.3</div>
+        <p>You are responsible for ensuring that your contact and payment information is accurate. The Company is not liable for failed or delayed access resulting from incorrect information provided by you.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">4.4</div>
+        <p>The Company reserves the right to decline any order at its sole discretion, including in cases of suspected fraud, policy violations, or technical pricing errors.</p>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="section" id="s05">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <h2 class="section-title">Rights &amp; Obligations</h2>
+      </div>
+      <div class="rights-grid">
+        <div class="rights-cell">
+          <h4>Company Obligations</h4>
+          <ul>
+            <li>Provide access to purchased Products following confirmed payment.</li>
+            <li>Ensure Product content substantially corresponds to the website description.</li>
+            <li>Maintain reasonable uptime for our digital platforms.</li>
+            <li>Process personal data in accordance with our Privacy Policy.</li>
+          </ul>
+        </div>
+        <div class="rights-cell">
+          <h4>Company Rights</h4>
+          <ul>
+            <li>Amend these Terms and pricing unilaterally, with notice.</li>
+            <li>Suspend or terminate access for violations of these Terms.</li>
+            <li>Update or modify Product content without prior notice.</li>
+            <li>Use anonymized aggregate usage data to improve services.</li>
+          </ul>
+        </div>
+        <div class="rights-cell">
+          <h4>Customer Obligations</h4>
+          <ul>
+            <li>Provide accurate registration and payment information.</li>
+            <li>Pay the applicable price in full prior to accessing Products.</li>
+            <li>Use Products solely for personal, non-commercial purposes.</li>
+            <li>Not share, resell, or transfer account access to third parties.</li>
+          </ul>
+        </div>
+        <div class="rights-cell">
+          <h4>Customer Rights</h4>
+          <ul>
+            <li>Receive access to purchased Products as described.</li>
+            <li>Contact our support team for technical assistance.</li>
+            <li>Exercise cancellation and refund rights (Section 9).</li>
+            <li>Exercise data protection rights as per our Privacy Policy.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="section" id="s06">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <h2 class="section-title">Pricing &amp; Payment</h2>
+      </div>
+      <div class="clause">
+        <div class="clause-num">6.1</div>
+        <p>All prices are as displayed on our website at the time of purchase and are quoted in the currency indicated. Prices are inclusive of any applicable taxes unless otherwise stated.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">6.2</div>
+        <p>Payment must be made in full before access to any Product is granted. We do not offer credit or deferred payment unless explicitly stated for a specific Product.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">6.3</div>
+        <p>Transactions are processed through certified third-party payment processors. The Company does not store your payment card data.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">6.4</div>
+        <p>In the event of a pricing error on our website, the Company reserves the right to cancel affected orders and offer customers the option to repurchase at the correct price.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">6.5</div>
+        <p>The Company may offer promotional pricing and discount codes at its discretion. Promotional pricing is not retroactively applicable to prior purchases.</p>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="section" id="s07">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <h2 class="section-title">Intellectual Property</h2>
+      </div>
+      <div class="clause">
+        <div class="clause-num">7.1</div>
+        <p>All content made available through our Services — including course videos, audio recordings, written materials, graphics, brand assets, trademarks, and logos — is the exclusive intellectual property of ZBL Company BV or its licensed contributors, protected under applicable intellectual property laws worldwide.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">7.2</div>
+        <p>Upon purchase, the Company grants you a personal, non-exclusive, non-transferable, revocable license to access and use the purchased Product solely for your own personal, non-commercial education and training purposes.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">7.3</div>
+        <p>You may <strong>not</strong>: copy, reproduce, record, screenshot, download, redistribute, resell, sublicense, publicly display, or create derivative works based on any of our content — in whole or in part — without the prior written consent of the Company.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">7.4</div>
+        <p>Any unauthorized use of our intellectual property constitutes a material breach of these Terms and may result in immediate termination of access and legal action to recover damages.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">7.5</div>
+        <p>Any feedback or suggestions you submit to us may be used by the Company without restriction or compensation to you.</p>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="section" id="s08">
+      <div class="section-header">
+        <div class="section-num">08</div>
+        <h2 class="section-title">Liability &amp; Disclaimers</h2>
+      </div>
+      <div class="clause">
+        <div class="clause-num">8.1</div>
+        <p>Our Services and Products are provided on an "as is" and "as available" basis. To the maximum extent permitted by applicable law, the Company makes no warranties, express or implied, regarding the accuracy, completeness, fitness for a particular purpose, or uninterrupted availability of our Services.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">8.2</div>
+        <p><strong>Health &amp; Fitness Disclaimer.</strong> Our content is provided for educational and informational purposes only. It does not constitute professional medical, physiotherapy, or health advice. Always consult a qualified health professional before starting any new fitness or physical training program. You participate in any physical activities described in our courses entirely at your own risk.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">8.3</div>
+        <p>The Company is not liable for any failure to provide Services where such failure results from: (a) inaccurate information provided by you; (b) your failure to meet technical requirements; (c) force majeure circumstances, including internet outages, cyberattacks, governmental actions, or payment system failures.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">8.4</div>
+        <p><strong>Limitation of Liability.</strong> To the maximum extent permitted by law, the Company's total aggregate liability shall not exceed the amount actually paid by you for the specific Product that gave rise to the claim in the twelve (12) months preceding the claim.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">8.5</div>
+        <p>In no event shall the Company be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or business opportunities.</p>
+      </div>
+      <div class="callout">
+        <p><em>Note for EU/EEA consumers: Nothing in this Section limits or excludes any rights you have under mandatory applicable consumer protection laws in your country of residence that cannot be lawfully waived by contract.</em></p>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="section" id="s09">
+      <div class="section-header">
+        <div class="section-num">09</div>
+        <h2 class="section-title">Refund Policy</h2>
+      </div>
+      <div class="clause">
+        <div class="clause-num">9.1</div>
+        <p><strong>Right of Withdrawal (EU Consumers).</strong> If you are a consumer located within the European Union, you have the right to withdraw from the purchase contract within 14 calendar days of the date of purchase, without giving any reason, in accordance with EU Directive 2011/83/EU on Consumer Rights.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">9.2</div>
+        <p><strong>Waiver of Withdrawal Right.</strong> By completing your purchase, you expressly request immediate access to the digital content and acknowledge that your right of withdrawal is forfeited once you have accessed or downloaded the content, as permitted by Article 16(m) of EU Directive 2011/83/EU.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">9.3</div>
+        <p><strong>Cancellation Before Access.</strong> If you cancel your purchase before digital access has been granted and the content has not been accessed, you are entitled to a full refund. Contact <a href="mailto:support@zbl.agency" style="color:var(--accent)">support@zbl.agency</a>.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">9.4</div>
+        <p><strong>No Refund After Access.</strong> Once access to a digital Product has been granted and the content has been accessed, no refund will be issued, except where required by mandatory applicable law or where the Product is demonstrably defective.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">9.5</div>
+        <p>Approved refunds will be processed to the original payment method within 14 business days.</p>
+      </div>
+      <div class="callout">
+        <p><em>Non-EU customers: The 14-day statutory withdrawal right applies specifically to EU consumers. The Company may consider refund requests at its sole discretion in cases of demonstrated technical failure attributable to the Company.</em></p>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="section" id="s10">
+      <div class="section-header">
+        <div class="section-num">10</div>
+        <h2 class="section-title">Prohibited Conduct</h2>
+      </div>
+      <p style="font-size:.93rem;color:var(--text-muted);margin-bottom:1rem;">You agree not to engage in any of the following when using our Services:</p>
+      <ul class="bullet-list">
+        <li>Sharing your account credentials or access link with any third party.</li>
+        <li>Recording, screenshotting, downloading, or capturing course content for redistribution.</li>
+        <li>Reselling, sublicensing, or commercially exploiting any of our content.</li>
+        <li>Attempting to reverse engineer or circumvent any security measures on our platforms.</li>
+        <li>Using our platforms to transmit spam, malware, or any harmful or illegal content.</li>
+        <li>Impersonating any person or entity, or misrepresenting your affiliation with any person.</li>
+      </ul>
+      <div class="callout" style="margin-top:1.5rem;">
+        <p>Violation of these prohibitions may result in immediate termination of your access without refund and may expose you to civil and/or criminal liability.</p>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="section" id="s11">
+      <div class="section-header">
+        <div class="section-num">11</div>
+        <h2 class="section-title">Term &amp; Termination</h2>
+      </div>
+      <div class="clause">
+        <div class="clause-num">11.1</div>
+        <p>These Terms remain in effect for as long as you use our Services or maintain an account with us.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">11.2</div>
+        <p>The Company may suspend or permanently terminate your access at any time and without prior notice if you breach these Terms, engage in fraudulent activity, or if required by law.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">11.3</div>
+        <p>You may terminate your account at any time by contacting <a href="mailto:support@zbl.agency" style="color:var(--accent)">support@zbl.agency</a>. Termination does not entitle you to a refund for previously purchased Products.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">11.4</div>
+        <p>Upon termination, clauses relating to intellectual property (Section 7), liability (Section 8), governing law (Section 12), and any other provisions that by their nature should survive shall continue to apply.</p>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="section" id="s12">
+      <div class="section-header">
+        <div class="section-num">12</div>
+        <h2 class="section-title">Governing Law &amp; Dispute Resolution</h2>
+      </div>
+      <div class="clause">
+        <div class="clause-num">12.1</div>
+        <p>These Terms and any dispute or claim arising out of or in connection with them shall be governed by and construed in accordance with the laws of Belgium, without regard to its conflict of law principles.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">12.2</div>
+        <p><strong>Informal Resolution.</strong> Before initiating any formal proceedings, the parties agree to attempt in good faith to resolve any dispute through direct negotiation within 30 days of written notice describing the dispute.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">12.3</div>
+        <p>If the dispute cannot be resolved informally within 30 days, either party may submit the matter to the competent courts of Belgium, which shall have exclusive jurisdiction, subject to clause 12.4.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">12.4</div>
+        <p><strong>EU Consumer Rights.</strong> Nothing in this Section affects the mandatory rights of EU consumers to bring proceedings in the courts of their country of habitual residence, or to access the EU Online Dispute Resolution platform at <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" style="color:var(--accent)">https://ec.europa.eu/consumers/odr</a>.</p>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="section" id="s13">
+      <div class="section-header">
+        <div class="section-num">13</div>
+        <h2 class="section-title">Miscellaneous</h2>
+      </div>
+      <div class="clause">
+        <div class="clause-num">13.1</div>
+        <p><strong>Entire Agreement.</strong> These Terms, together with our Privacy Policy and any additional terms applicable to specific Products, constitute the entire agreement between you and the Company and supersede all prior communications or agreements.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">13.2</div>
+        <p><strong>Waiver.</strong> Failure by the Company to enforce any provision of these Terms shall not constitute a waiver of the Company's right to enforce such provision in the future.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">13.3</div>
+        <p><strong>Assignment.</strong> You may not assign or transfer any rights or obligations under these Terms without the prior written consent of the Company.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">13.4</div>
+        <p><strong>Force Majeure.</strong> The Company shall not be liable for any delay or failure to perform its obligations to the extent caused by circumstances beyond its reasonable control.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">13.5</div>
+        <p><strong>Language.</strong> These Terms are made in the English language. Any translations are for convenience only. In case of conflict, the English version shall prevail.</p>
+      </div>
+      <div class="clause">
+        <div class="clause-num">13.6</div>
+        <p>This document constitutes a public offer in accordance with applicable contract law principles. It is publicly available on our website and binding upon acceptance as described in Section 4.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-question">Have a Question?</p>
+  <p class="footer-desc">Our support team is available to help with any questions about these Terms or your purchase.</p>
+  <a class="footer-email" href="mailto:support@zbl.agency">support@zbl.agency</a>
+  <p class="footer-copy">© 2025–2026 ZBL Company BV &nbsp;|&nbsp; support@zbl.agency &nbsp;|&nbsp; Belgium</p>
+</footer>
+
+</body>
+</html>
